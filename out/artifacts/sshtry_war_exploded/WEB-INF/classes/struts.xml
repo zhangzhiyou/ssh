@@ -21,8 +21,7 @@
 
                 <action name="administratorlogin" class="administratoraction">
                         <result name="success">Administratorlogin.jsp</result>
-                        <result name="error">Administractor.jsp</result>
+                        <result name="error">Administrator.jsp</result>
                 </action>
         </package>
-
 </struts>

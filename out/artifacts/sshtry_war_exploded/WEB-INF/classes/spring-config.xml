@@ -29,20 +29,11 @@
 
 
     <!--定义hibernate的sessionfactory todo hibernateTemplate-->
-    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate4.HibernateTemplate">
-        <property name="sessionFactory" ref="sessionFactory"/>
-    </bean>
-
-
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="mappingResources">
             <list>
-                <!-- 以下列出所有的 PO 映射文件 -->
-                <!--<value>com/xiayule/getll/db/model/MobileAccount.hbm.xml</value>-->
-                <!--<value>net/xiayule/springhibernate/model/person.hbm.xml</value>-->
-                <!--<value>net/xiayule/springhibernate/model/cookie.hbm.xml</value>-->
                 <value>zhiyou/model/administrator.hbm.xml</value>
             </list>
         </property>
@@ -79,8 +70,9 @@
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="ajaxPointcut"/>
     </aop:config>
+    <!---->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
     <!--配置dao的bean-->
-
     <bean id="administratorDao" class="zhiyou.Dao.AdministratorDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>

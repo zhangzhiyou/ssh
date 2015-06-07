@@ -1,20 +1,16 @@
 package zhiyou.Action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import zhiyou.Dao.Adminis;
 import zhiyou.Dao.AdministratorDao;
-import zhiyou.model.Administrator;
-import zhiyou.model.Adminstratorlogins;
-
-import java.util.List;
 
 /**
  * Created by zhiyou on 15-6-1.
  */
 public class Administratoraction extends ActionSupport {
 
- //   private AdministratorDao administratorDao;
-
-  //  private Adminstratorlogins adminstratorlogins;
     private String username;
     private String password;
 
@@ -32,28 +28,18 @@ public class Administratoraction extends ActionSupport {
     public void setPassword(String password) {
         this.password = password;
     }
-
-//    public void setAdministratorDao(AdministratorDao administratorDao) {
-//        this.administratorDao = administratorDao;
-//    }
-//
-//    public AdministratorDao getAdministratorDao() {
-//        return administratorDao;
-//    }
-
-
     public String execute() throws Exception{
-    AdministratorDao administratorDao = new AdministratorDao();
-
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
+        Adminis administratorDao = ctx.getBean("administratorDao",AdministratorDao.class);
         System.out.println("usernaem+password"+getUsername()+"1111"+getPassword());
 
-        List list= administratorDao.logincheck(getUsername(), getPassword());
-
-        if(!list.equals("")){
-            return SUCCESS;
-        }
-        else {
+        Integer result= administratorDao.logincheck(getUsername(), getPassword());
+            System.out.println(result+"22222");
+        if(result<0){
             return ERROR;
+        }
+         else {
+            return SUCCESS;
         }
     }
 }

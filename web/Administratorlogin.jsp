@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-  <h1>管理员登录</h1>
+  <h1></h1>
 </body>
 </html>
