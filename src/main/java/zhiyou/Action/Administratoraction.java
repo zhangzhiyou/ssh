@@ -31,10 +31,7 @@ public class Administratoraction extends ActionSupport {
     public String execute() throws Exception{
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
         Adminis administratorDao = ctx.getBean("administratorDao",AdministratorDao.class);
-        System.out.println("usernaem+password"+getUsername()+"1111"+getPassword());
-
         Integer result= administratorDao.logincheck(getUsername(), getPassword());
-            System.out.println(result+"22222");
         if(result<0){
             return ERROR;
         }

@@ -70,10 +70,13 @@
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="ajaxPointcut"/>
     </aop:config>
-    <!---->
+    <!--使用jdk动态代理-->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <!--配置dao的bean-->
     <bean id="administratorDao" class="zhiyou.Dao.AdministratorDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="disposeupload" class="zhiyou.Dao.Disposeupload">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 </beans>

@@ -25,11 +25,9 @@ public class AdministratorDao extends HibernateDaoSupport implements Adminis{//�
    public Integer logincheck(String username,String password) {
        String hql = "select username,password from Administrator a " +
                "where a.username =? and a.password=?";
-
     //也可以用sql语句
      //  String sql = "select username,password from Administrator a where a.username =? and a.password=?";
       // SQLQuery query = currentSession().createSQLQuery(sql);
-
        Query query = currentSession().createQuery(hql);
        query.setString(0,username);
        query.setString(1,password);

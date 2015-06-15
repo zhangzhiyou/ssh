@@ -18,10 +18,13 @@
                         <result name="success">Administrator.jsp</result>
                         <result name="error">Userlogin.jsp</result>
                 </action>
-
                 <action name="administratorlogin" class="administratoraction">
                         <result name="success">Administratorlogin.jsp</result>
                         <result name="error">Administrator.jsp</result>
+                </action>
+                <action name="uploading" class="uploading" method="download">
+                        <result name="success">download.jsp</result>
+                        <result name="error">Administratorlogin.jsp</result>
                 </action>
         </package>
 </struts>
