@@ -13,18 +13,31 @@
         <!-- <constant name="struts.xslt.nocache" value="true"/>-->
         <constant name="struts.devMode" value="false"/><!-- 开启使用开发模式，详细错误提示 -->
         <constant name="struts.i18n.encoding" value="UTF-8"/>
+        <constant name="struts.multipart.maxSize" value="1000000000"/><!--改变上传文件的最大值，大约1G-->
         <package name="lee" extends="struts-default">
+
                 <action name="login" class="loginAction">
                         <result name="success">Administrator.jsp</result>
                         <result name="error">Userlogin.jsp</result>
                 </action>
                 <action name="administratorlogin" class="administratoraction">
-                        <result name="success">Administratorlogin.jsp</result>
+                        <result name="success">Lvloginout.jsp</result>
                         <result name="error">Administrator.jsp</result>
                 </action>
-                <action name="uploading" class="uploading" method="download">
-                        <result name="success">download.jsp</result>
-                        <result name="error">Administratorlogin.jsp</result>
+                <!--<action name="uploading" class="uploading" method="download">-->
+                        <!--<result name="success">download.jsp</result>-->
+                        <!--<result name="error">Administratorlogin.jsp</result>-->
+                <!--</action>-->
+                <!--吕老师登录 后的处理批准教室-->
+                <action name="loging3" class="lvloginshenhedao">
+                        <result name="success">Lvloginout.jsp</result>
                 </action>
+                <!--处理上传文件业务逻辑-->
+                <action name="login4" class="uploadingaction">
+
+                        <result name="success">download.jsp</result>
+                        <result name="error">Lvloginout.jsp</result>
+                </action>
+
         </package>
 </struts>

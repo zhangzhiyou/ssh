@@ -8,10 +8,9 @@ public class MyServiceImpl implements Myservice {
     private String error = "error";
     public int validLogin(String login){
         if(login.equals("1")){
-            System.out.println("111111");
-            return 1;
+
+            return 1;//return1之后程序就结束了，一个方法中不可能return2次
         }
-        System.out.println("222222");
         return -1;
     }
 }

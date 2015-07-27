@@ -11,9 +11,15 @@
        <bean id="administrator" class="zhiyou.model.Administrator"/>
        <bean id="administratoraction" class="zhiyou.Action.Administratoraction">
        </bean>
-       <!--管理员上传-->
-       <bean id="uploading" class="zhiyou.Action.Uploadingaction">
-       </bean>
-       <bean id="disposeupload" class="zhiyou.Dao.Disposeupload">
-       </bean>
+
+
+
+       <!--<bean id="filelist" class="zhiyou.model.Filelist">-->
+       <!--</bean>-->
+
+       <bean id="lvlogin" class="zhiyou.model.Lvlogin"/>
+       <bean id="lvloginshenhedao" class="zhiyou.Action.Lvloginshenhedao"/>
+      <!--上传文件列表-->
+       <bean id="filelist " class="zhiyou.model.Filelist"/>
+       <bean id="uploadingaction" class="zhiyou.Action.Uploadingaction"/>
 </beans>

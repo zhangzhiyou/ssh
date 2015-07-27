@@ -16,7 +16,7 @@
               <!-- 指定链接数据库的驱动-->
               <property name="driverClass" value="com.mysql.jdbc.Driver"/>
               <!-- 指定链接数据库的 url -->
-              <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/stest?useUnicode=true&amp;characterEncoding=utf8"/>
+              <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/stest?useUnicode=true&amp;characterEncoding=utf-8"/>
               <!-- 指定链接数据库的用户名 -->
               <property name="user" value="root"/>
               <!-- 指定链接数据库的密码 -->
@@ -31,10 +31,12 @@
     <!--定义hibernate的sessionfactory todo hibernateTemplate-->
     <bean id="sessionFactory"
           class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="dataSource" ref="dataSource"/><!--todo ref函数中的变量是类类型的-->
         <property name="mappingResources">
             <list>
+                <!--todo 列出所有的映射文件-->
                 <value>zhiyou/model/administrator.hbm.xml</value>
+                <value>zhiyou/model/filelist.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -56,27 +58,32 @@
         <!-- 用于配置详细的事务语义 -->
         <tx:attributes>
             <!-- 所有以 'get' 开头的方法是 read-only 的 -->
-            <tx:method name="get*" read-only="true"/>
+            <tx:method name="get*" read-only="true" />
             <!-- 其他方法使用默认的事务配置 -->
             <tx:method name="*"/>
+
+
         </tx:attributes>
     </tx:advice>
-
     <aop:config>
-        <!-- 配置一个切入点 -->
+        <!-- todo 配置一个切入点每增加一个类就要增加一个bean也就是，下面的配置的daobean -->
         <aop:pointcut id="ajaxPointcut"
-                      expression="bean(administratorDao)"/>
+                      expression="bean(administratorDao)||bean(dfilelistDao)"/>
         <!-- 指定在 leePointcut 切入点应用 txAdvice 事务增强处理 -->
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="ajaxPointcut"/>
     </aop:config>
     <!--使用jdk动态代理-->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-    <!--配置dao的bean-->
+    <!--配置dao的bean 所有的daobean都与数据库有关-->
     <bean id="administratorDao" class="zhiyou.Dao.AdministratorDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <bean id="disposeupload" class="zhiyou.Dao.Disposeupload">
+
+    <bean id="lvoginshenheDao" class="zhiyou.Dao.LvoginshenheDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="dfilelistDao" class="zhiyou.Dao.DfilelistDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 </beans>

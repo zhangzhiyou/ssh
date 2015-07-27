@@ -5,7 +5,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
 
 <!--hibernate-mapping是映射文件的根元素-->
-<hibernate-mapping package="zhiyou" >
+<hibernate-mapping package="zhiyou" ><!--配置一个表-->
     <!-- 每个class元素对应一个持久话对象-->
     <class name="zhiyou.model.Administrator" table="administrator">
         <!--id元素定义持久化对象-->
@@ -17,4 +17,5 @@
         <property name="username"  type="java.lang.String"/>
         <property name="password"  type="java.lang.String"/>
     </class>
+
 </hibernate-mapping>

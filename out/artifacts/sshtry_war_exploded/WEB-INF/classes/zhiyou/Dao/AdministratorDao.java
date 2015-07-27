@@ -13,16 +13,17 @@ import java.util.List;
 
 /**
  * Created by zhiyou on 15-5-31.
+ * 所有的数据库访问经过Dao组件
  */
 public class AdministratorDao extends HibernateDaoSupport implements Adminis{//调用时这要用hibernate4
     private String result;
-    public void save(Administrator administrator){
+    public void save(Administrator administrator){//添加数据库数据
         getHibernateTemplate().save(administrator);
     }
-   public void update(Administrator administrator){
+   public void update(Administrator administrator){//更新数据库信息
         getHibernateTemplate().update(administrator);
     }
-   public Integer logincheck(String username,String password) {
+   public Integer logincheck(String username,String password) {//查找信息
        String hql = "select username,password from Administrator a " +
                "where a.username =? and a.password=?";
     //也可以用sql语句

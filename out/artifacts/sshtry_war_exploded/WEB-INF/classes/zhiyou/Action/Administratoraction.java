@@ -28,9 +28,9 @@ public class Administratoraction extends ActionSupport {
     public void setPassword(String password) {
         this.password = password;
     }
-    public String execute() throws Exception{
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
-        Adminis administratorDao = ctx.getBean("administratorDao",AdministratorDao.class);
+    public String execute() throws Exception{//spring链接hibernater，处理数据库信息
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");//加载xml文件
+        Adminis administratorDao = ctx.getBean("administratorDao",AdministratorDao.class);//返回值是administratordao类型的 实列化一个工厂
         Integer result= administratorDao.logincheck(getUsername(), getPassword());
         if(result<0){
             return ERROR;

@@ -16,7 +16,7 @@
         border-top: 1px dashed blue;
         border-right:1px dotted #2b42ff;
         border-left:1px solid #ff0000;
-        border-bottom: 1px solid chartreuse ;
+        border-bottom: 1px solid chartreuse;
 
       }
     </style>
@@ -53,7 +53,6 @@
               </td>
             </tr>
           </table>
-
         </td>
       </tr>
     </div>
