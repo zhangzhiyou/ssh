@@ -40,7 +40,6 @@
             classpath:zhiyou/model/administrator.hbm.xml,
             classpath:zhiyou/model/filelist.hbm.xml,
             classpath:spring-config.xml,
-
         </param-value>
     </context-param>
     <listener>

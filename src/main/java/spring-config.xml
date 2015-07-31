@@ -20,7 +20,7 @@
               <!-- 指定链接数据库的用户名 -->
               <property name="user" value="root"/>
               <!-- 指定链接数据库的密码 -->
-              <property name="password" value="0000"/>
+              <property name="password" value="******"/>
               <!-- sae 建议 -->
               <property name="idleConnectionTestPeriod" value="10"/>
               <!-- 指定链接数据库连接池的最大空闲时间 -->

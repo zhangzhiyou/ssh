@@ -22,7 +22,6 @@ public class Loginaction extends ActionSupport{
         this.ms = ms;
     }
     public String execute() throws Exception {
-        System.out.println(getLogin());//此时login的值等于你从页面上输入的值
         if (ms.validLogin(getLogin())>0) {
            return SUCCESS;
         }

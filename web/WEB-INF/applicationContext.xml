@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+     ">
+        <!--<context:component-scan base-package="zhiyou.Action"/>-->
        <bean id="myservice" class="zhiyou.Action.MyServiceImpl"/>
        <bean id="loginAction" class="zhiyou.Action.Loginaction" scope="prototype">
               <property name="ms" ref="myservice"/>
@@ -11,9 +14,6 @@
        <bean id="administrator" class="zhiyou.model.Administrator"/>
        <bean id="administratoraction" class="zhiyou.Action.Administratoraction">
        </bean>
-
-
-
        <!--<bean id="filelist" class="zhiyou.model.Filelist">-->
        <!--</bean>-->
 
@@ -22,4 +22,7 @@
       <!--上传文件列表-->
        <bean id="filelist " class="zhiyou.model.Filelist"/>
        <bean id="uploadingaction" class="zhiyou.Action.Uploadingaction"/>
+       <!--下载文件-->
+       <bean id="downloadaction" class="zhiyou.Action.Downloadaction"/>
+
 </beans>

@@ -30,7 +30,7 @@ public class DfilelistDao extends HibernateDaoSupport implements Dfilelist{
         Statement stmt = null;
         ResultSet rs = null;
         String str="<table  border=\"1\" bordercolor=\"black\" cellpadding=\"10\" cellspacing=\"0\" width=\"200\">" +
-                "<tr><th>文件名</th><th>文件类型(可以为空)</th></tr>";
+                "<tr><th>文件名</th></tr>";
         String hql="select filename,filetype from Filelist";
         Query query = currentSession().createQuery(hql);
         List<Object> list = query.list();
@@ -42,29 +42,23 @@ public class DfilelistDao extends HibernateDaoSupport implements Dfilelist{
         // todo 然后取数组的长度，再对数组obj数组进行遍历，数组中的每一个元素
         // todo 相当与数据库中的一个元组值。
         for(int i=0;i<list.size();i++){
-            str=str+"<tr>";
-            Object[] obj = (Object[])list.get(i);
             String st="";
+            Object[] obj = (Object[])list.get(i);
+
             for(int j=0;j<obj.length;j++) {
              //   System.out.println(obj[j]);
               //  st+=obj[j];
-                if(j==0) {
-                    str += "<td>"+obj[j] + "<input type='radio'" + "value='obj[j]'" + "name='filename'" + "/></td>";
-                }else {
-                    str += "<td>"+obj[j] + "<input type='radio'" + "value='obj[j]'" + "name='filetype'" + "/></td>";
-                }
+//                if(j==0) {
+//                    str += "<td>"+obj[j] + "<input type='radio'" + "value='obj[j]'" + "name='filename'" + "/></td>";
+//                }else {
+//                    str += "<td>"+obj[j] + "<input type='radio'" + "value='obj[j]'" + "name='filetype'" + "/></td>";
+//                }
+                st = st+obj[j];
             }
-            str = str+"</tr>";
+            str=str+"<tr><td><a href='http://localhost:8080s/home/zhiyou/upload/'"+">"+st+"</a></td></tr>";
         }
         str=str+"</table>";
-
-//        for(Iterator it=list.iterator();it.hasNext();){
-//            System.out.println(it.next().toString()+"11111");        }
-// ArrayList<Filelist> arrayList = (ArrayList)query.list();
-//        for(int i=0;i<arrayList.size();i++){
-//            System.out.println(arrayList.get(i));
-//        }
-
+        //控制器完成业务处理后会返回一些值，而返会的这些值就可以子页面中显示。我们称这些业务逻辑组件（类）为Model
         return str;
     }
 

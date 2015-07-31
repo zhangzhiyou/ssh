@@ -24,6 +24,7 @@ public  class Uploadingaction extends ActionSupport {
      private String filename;
     private String filetype;
     private String error;
+    private String success;
 
     public File getFile() {
         return file;
@@ -55,6 +56,14 @@ public  class Uploadingaction extends ActionSupport {
         this.error = error;
     }
 
+    public String getSuccess() {
+        return success;
+    }
+
+    public void setSuccess(String success) {
+        this.success = success;
+    }
+
     public String execute() throws Exception{
 
         //获取上传文件存放的路径
@@ -74,6 +83,8 @@ public  class Uploadingaction extends ActionSupport {
                 savefile.getParentFile().mkdirs();//若不存在就新建一个
             }
             FileUtils.copyFile(file,savefile);
+            success="恭喜你上传成功";
+            setSuccess(success);
             return SUCCESS;
         }
             error="选的文件不能为空";
