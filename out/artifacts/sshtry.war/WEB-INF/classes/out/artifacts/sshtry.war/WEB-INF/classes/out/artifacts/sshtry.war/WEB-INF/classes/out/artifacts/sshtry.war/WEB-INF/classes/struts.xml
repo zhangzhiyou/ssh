@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+        <!-- 指定每次请求到达，重新加载资源文件 -->
+        <!-- <constant name="struts.i18n.reload" value="true"/>-->
+        <!-- 指定每次配置文件更改后，自动重新加载 -->
+        <!-- <constant name="struts.configuration.xml.reload" value="true"/>-->
+        <!-- 指定XSLT Result使用样式表缓存 -->
+        <!-- <constant name="struts.xslt.nocache" value="true"/>-->
+        <constant name="struts.devMode" value="false"/><!-- 开启使用开发模式，详细错误提示 -->
+        <constant name="struts.i18n.encoding" value="UTF-8"/>
+        <constant name="struts.multipart.maxSize" value="1000000000"/><!--改变上传文件的最大值，大约1G-->
+        <!-- 指定国际化资源文件的baseName为uploadFile-->
+        <constant name="struts.custom.i18n.resources" value="uploadFile"/>
+        <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+        <package name="lee" extends="struts-default">
+
+                <action name="login" class="loginAction">
+                        <result name="success">Administrator.jsp</result>
+                        <result name="error">Userlogin.jsp</result>
+                </action>
+                <action name="administratorlogin" class="administratoraction">
+                        <result name="success">Lvloginout.jsp</result>
+                        <result name="error">Administrator.jsp</result>
+                </action>
+
+                <!--吕老师登录 后的处理批准教室-->
+                <action name="loging3" class="lvloginshenhedao">
+                        <result name="success">Lvloginout.jsp</result>
+                </action>
+                <!--处理上传文件业务逻辑-->
+                <action name="login4" class="uploadingaction">
+
+                        <result name="success">Lvloginout.jsp</result>
+                        <result name="error">Lvloginout.jsp</result>
+                </action>
+                <action name="download" class="downloadaction" method="down">
+                        <!-- 配置结果类型为stream的结果 -->
+                        <result name="success" type="stream">
+
+                                <!-- 指定下载文件的位置 -->
+                                <param name="inputName">targetFile</param><!--attachment值附件-->
+                                <param name="contentDisposition">
+                                        attachment;filename="${filename}"
+                                </param>
+                        </result>
+                </action>
+        </package>
+</struts>

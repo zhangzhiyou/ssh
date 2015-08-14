@@ -9,5 +9,5 @@ public interface Dfilelist {
     public void save(Filelist filelist);
     public void updata(Filelist filelist);
     public String showtable();
-
+    public void delect(String filename,String filetype);
 }

@@ -11,6 +11,14 @@
     <title>欢迎来到分享界面</title>
 
     <style type="text/css">
+      /**{margin: 0;padding :0}*/
+      /*body{font-size:12px;font-family: "微软雅黑" ;color:#666}*/
+      /*.head{width:100%;height:50px;}*/
+      /*.head .h-letf{width:200px;height:60px;border:1px green;*/
+        /*margin-left:20px;float:left}*/
+      /*.head .h-mid{height: 60px;border:1px lightseagreen}*/
+      /*.head .h-rigth{width: 200px;height:60px;border:1px blue;*/
+        /*float:right;margin-right:20px;}*/
       body{background: url("img/am.jpg")}
       div{
         border-top: 1px dashed blue;
@@ -23,6 +31,11 @@
   </head>
   <body>
   <form id="form" method="post" action="login">
+    <%--<div  class="head">--%>
+      <%--<div class="h-letf"></div>--%>
+      <%--<div class="h-rigth"></div>--%>
+      <%--<div class="h-mid"></div>--%>
+    <%--</div>--%>
     <img border="0" src="img/am.jpg" width="100%" height="100%"
          style='position: absolute;left:0px;top:0px;z-index: -1'/><br/>
     <div align="center" style="height: 100%">

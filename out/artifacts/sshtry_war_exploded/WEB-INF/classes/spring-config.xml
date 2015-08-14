@@ -34,7 +34,7 @@
         <property name="dataSource" ref="dataSource"/><!--todo ref函数中的变量是类类型的-->
         <property name="mappingResources">
             <list>
-                <!--todo 列出所有的映射文件-->
+                <!--todo 列出所有的映射文件，通过这来加载.hbm.xml文件-->
                 <value>zhiyou/model/administrator.hbm.xml</value>
                 <value>zhiyou/model/filelist.hbm.xml</value>
             </list>
@@ -61,8 +61,6 @@
             <tx:method name="get*" read-only="true" />
             <!-- 其他方法使用默认的事务配置 -->
             <tx:method name="*"/>
-
-
         </tx:attributes>
     </tx:advice>
     <aop:config>

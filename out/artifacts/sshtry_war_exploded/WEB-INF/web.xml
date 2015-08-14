@@ -29,13 +29,13 @@
             <!--<param-value>AUTO </param-value>-->
         <!--</init-param>-->
     </filter>
-    <filter-mapping>
+    <filter-mapping><!--这句话表明加载web项目struts.xml文件-->
         <filter-name>struts2</filter-name>
-        <url-pattern>/*</url-pattern><!--建立拦截器，拦截所有的事件-->
+        <url-pattern>/*</url-pattern><!--建立拦截器，拦截所有的事件在ssh框架中所有的1请求都经过strusts2拦截器拦截，-->
     </filter-mapping>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value><!--添加要加载的文件-->
+        <param-value><!--添加要加载的文件spring要加在的.xml文件-->
             /WEB-INF/applicationContext.xml,
             classpath:zhiyou/model/administrator.hbm.xml,
             classpath:zhiyou/model/filelist.hbm.xml,
@@ -45,4 +45,13 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <!--<servlet>-->
+        <!--<servlet-name>Fenye</servlet-name>-->
+        <!--<servlet-class>zhiyou.requestpaging.Fenye</servlet-class>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>Fenye</servlet-name>-->
+        <!--<url-pattern>/paging</url-pattern>-->
+    <!--</servlet-mapping>-->
 </web-app>

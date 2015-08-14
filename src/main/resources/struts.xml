@@ -41,14 +41,11 @@
                 </action>
                 <action name="download" class="downloadaction" method="down">
                         <!-- 配置结果类型为stream的结果 -->
-                        <result name="success" type="stream">
+                        <result name="success" >download.jsp</result>
+                </action>
+                <action name="delete" class ="deleteaction" method="delete">
+                        <result name ="success">delectfile.jsp</result>
 
-                                <!-- 指定下载文件的位置 -->
-                                <param name="inputName">targetFile</param><!--attachment值附件-->
-                                <param name="contentDisposition">
-                                        attachment;filename="${filename}"
-                                </param>
-                        </result>
                 </action>
         </package>
 </struts>
