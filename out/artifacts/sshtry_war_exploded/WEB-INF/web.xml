@@ -19,15 +19,7 @@
     <filter>
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-        <!--todo 做了修改-->
-        <!--<init-param>-->
-            <!--<param-name>singleSession</param-name>-->
-            <!--<param-value>true</param-value>-->
-        <!--</init-param>-->
-        <!--<init-param>-->
-            <!--<param-name> flushMode </param-name>-->
-            <!--<param-value>AUTO </param-value>-->
-        <!--</init-param>-->
+
     </filter>
     <filter-mapping><!--这句话表明加载web项目struts.xml文件-->
         <filter-name>struts2</filter-name>
@@ -37,8 +29,8 @@
         <param-name>contextConfigLocation</param-name>
         <param-value><!--添加要加载的文件spring要加在的.xml文件-->
             /WEB-INF/applicationContext.xml,
-            classpath:zhiyou/model/administrator.hbm.xml,
-            classpath:zhiyou/model/filelist.hbm.xml,
+            <!--classpath:zhiyou/model/administrator.hbm.xml,-->
+            <!--classpath:zhiyou/model/filelist.hbm.xml,-->
             classpath:spring-config.xml,
         </param-value>
     </context-param>
@@ -46,12 +38,5 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <!--<servlet>-->
-        <!--<servlet-name>Fenye</servlet-name>-->
-        <!--<servlet-class>zhiyou.requestpaging.Fenye</servlet-class>-->
-    <!--</servlet>-->
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>Fenye</servlet-name>-->
-        <!--<url-pattern>/paging</url-pattern>-->
-    <!--</servlet-mapping>-->
+
 </web-app>

@@ -22,8 +22,8 @@
         $(function(){
            $('.d-filewriter')
                    .animate({
-                       left:"+=350",
-                       top:"+=150"
+                       left:"+=250",
+                       top:"+=30"
                    },
            'slow'
            )
@@ -34,19 +34,14 @@
         body{font-size:12px;font-family:"微软雅黑";background: url("img/down.jpg");color:#666}
         .delete{ width: 100%;height: 600px;}
         .delete .d-showtable{background: #fff2ce;
-            width: 400px;height: 200px;margin-left: 300px;margin-top: 80px;padding-top: 19px;padding-left: 100px;
+            width: 680px;height: 300px;margin-left: 60px;margin-top: 30px;padding-top: 30px;padding-left: 150px;
         }
-      .delete .d-filewriter{position:relative;height: 200px;width: 400px;background: #908f8f;margin-top: 1px;margin-left: 1px;}
-        .delete .d-filewriter .d-p{margin-left: 50px;margin-top: 9px;
-            width: 300px;height: 50px;font-size: 100%;background: #aeb5c1;
-        }
-        .delete .d-filewriter .d-p .d-s{ width: 30% ;height: 50px;font-size: 15px;
-        }
-        .delete .d-filewriter .d-p .d-i{  width: 70% ;height: 50px;font-size: 15px;background: #c9c7c7
-        }
+      .delete .d-filewriter{position:relative;height: 60px;width: 300px;margin-top: 1px;margin-left: 1px;}
+
         .d-button{width: 300px;background: #575157;margin-top: 14px;margin-left: 50px;height: 50px;
         }
         .d-submit{width: 300px;background: #575157;margin: 0 auto;height: 50px;}
+        .warn{margin:0 auto}
     </style>
 </head>
     <body>
@@ -59,16 +54,14 @@
                 <%=dfilelistDao.showtable()%>
             </div>
             <div class="d-filewriter" >
-                <p class="d-p">
-                    <span class="d-s" >文件名</span>
-                    <input class="d-i"  type="text" name="filename" value=""/>
-                </p>
-                <p class="d-p">
-                    <span class="d-s" >文件类型</span>
-                    <input class="d-i"  type="text" name="filetype" value=""/>
-                </p>
                 <div class="d-button">
                     <button class="d-submit" type="submit">提交</button>
+                </div>
+                <div class="warn">
+                    <tr>
+                        <td width="40%"></td>
+                        <font color="red">${error}</font>
+                    </tr>
                 </div>
             </div>
           </form>

@@ -6,7 +6,7 @@ package zhiyou.model;
 public class Filelist {
     private Integer id;
   private String filename;
-    private String filetype;
+//    private String filetype;
 
     public Filelist() {
     }
@@ -27,16 +27,16 @@ public class Filelist {
         this.filename = filename;
     }
 
-    public String getFiletype() {
-        return filetype;
-    }
+//    public String getFiletype() {
+//        return filetype;
+//    }
+//
+//    public void setFiletype(String filetype) {
+//        this.filetype = filetype;
+//    }
 
-    public void setFiletype(String filetype) {
-        this.filetype = filetype;
-    }
-
-    public  Filelist(String filename,String filetype){
+    public  Filelist(String filename){
         this.filename=filename;
-        this.filetype=filetype;
+//        this.filetype=filetype;
     }
 }

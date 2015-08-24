@@ -12,7 +12,8 @@
         </id>
         <!-- property元素定义常规属性-->
 
+
         <property name="filename"  type="java.lang.String"/>
-        <property name="filetype"  type="java.lang.String"/>
+        <!--<property name="filetype"  type="java.lang.String"/>-->
     </class>
 </hibernate-mapping>

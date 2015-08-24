@@ -25,13 +25,15 @@ import java.io.*;
 public  class Uploadingaction extends ActionSupport {
      private File file;
      private String filename;
-    private String filetype;
+
     private String error;
     private String success;
 
     public File getFile() {
         return file;
     }
+
+
 
     public void setFile(File file) {
         this.file = file;
@@ -44,13 +46,6 @@ public  class Uploadingaction extends ActionSupport {
         this.filename = filename;
     }
 
-    public String getFiletype() {
-        return filetype;
-    }
-
-    public void setFiletype(String filetype) {
-        this.filetype = filetype;
-    }
     public String getError() {
         return error;
     }
@@ -70,15 +65,16 @@ public  class Uploadingaction extends ActionSupport {
     public String execute() throws Exception{
 
         //获取上传文件存放的路径
-        String root = "/home/zhiyou/upload";
-        //todo 做了修改
-       Filelist filelist = new Filelist(getFilename(),getFiletype());
+        String name = getFilename();
+        Filelist filelist = new Filelist(name);
         ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");//加载xml文件
         Dfilelist dfilelistDao = ctx.getBean("dfilelistDao",DfilelistDao.class);
         //todo 把新添加的文件名和文件类型保存到数据库
         dfilelistDao.save(filelist);
+
+        String root = "/home/zhiyou/upload"+"/"+name;
         if(file!=null){
-            File savefile = new File(new File(root),filename);//todo File引用的是java.io.*包下面的
+            File savefile = new File(root);//todo File引用的是java.io.*包下面的
             if(!savefile.getParentFile().exists()){//判断存放文件的文件夹是否存在，
                 savefile.getParentFile().mkdirs();//若不存在就新建一个
             }

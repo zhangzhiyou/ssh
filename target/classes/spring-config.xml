@@ -75,6 +75,7 @@
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <!--配置dao的bean 所有的daobean都与数据库有关-->
     <bean id="administratorDao" class="zhiyou.Dao.AdministratorDao">
+
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

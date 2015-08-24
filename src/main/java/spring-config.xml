@@ -20,7 +20,7 @@
               <!-- 指定链接数据库的用户名 -->
               <property name="user" value="root"/>
               <!-- 指定链接数据库的密码 -->
-              <property name="password" value="*****"/>
+              <property name="password" value="0000"/>
               <!-- sae 建议 -->
               <property name="idleConnectionTestPeriod" value="10"/>
               <!-- 指定链接数据库连接池的最大空闲时间 -->
@@ -75,6 +75,7 @@
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <!--配置dao的bean 所有的daobean都与数据库有关-->
     <bean id="administratorDao" class="zhiyou.Dao.AdministratorDao">
+
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 

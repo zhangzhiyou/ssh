@@ -19,7 +19,7 @@
     .head{width:100%;height:700%;background: url("img/am.jpg") ;position:relative}
     .head .h-uplode{width:400px;height:400px;
       border: 1px solid red; position:absolute;
-      top:180px;left:440px;background: #fffdc7;
+      top:150px;left:360px;background: #fffdc7;
       /*padding-top:14px;*/
       /*padding-left: 72px;*/
     }
@@ -45,6 +45,7 @@
     <div class="head">
     <div class="h-uplode">
                       <p>
+                          <span>选择上传文件：</span>
                          <input type="file" name="file" class="h-file"/>
                         </p>
                       <p >
@@ -76,7 +77,6 @@
           </div>
                   <p class="h-prompt">
                       <font color="aqua">${success}</font>
-                    <font  color="red">${ error}</font>
                   </p>
           </div>
     </div>

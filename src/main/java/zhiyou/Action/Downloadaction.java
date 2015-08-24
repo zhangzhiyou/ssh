@@ -37,7 +37,16 @@ public class Downloadaction extends ActionSupport {
     DownDao downDao = new DownDao();
     Dbutil dbutil = new Dbutil();
     private String filename;
-    private String filetype;
+    private String selectfile;
+
+    public String getSelectfile() {
+        return selectfile;
+    }
+
+    public void setSelectfile(String selectfile) {
+        this.selectfile = selectfile;
+    }
+
     private InputStream inputStream;
     private ServletContext servletContext;
     public String getFilename() {
@@ -46,21 +55,12 @@ public class Downloadaction extends ActionSupport {
     public void setFilename(String filename) {
         this.filename = filename;
     }
-    public String getFiletype() {
-        return filetype;
-    }
-    public void setFiletype(String filetype) {
-        this.filetype = filetype;
-    }
     public String down()throws Exception{
-
-        //todo 开始添加代码
         HttpServletResponse response=ServletActionContext.getResponse();//todo 获得一个请求的 responce对象
         HttpServletRequest request = ServletActionContext.getRequest();//todo
-        //todo 添加代码结束
         request.setAttribute("filename",filename);
         Downfile downfile = new Downfile();
-        downfile.down(response,getFilename(),getFiletype());
+        downfile.sdown(response,getSelectfile());
         return SUCCESS;
     }
 

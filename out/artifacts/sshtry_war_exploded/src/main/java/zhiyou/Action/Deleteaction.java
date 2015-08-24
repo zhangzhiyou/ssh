@@ -15,31 +15,30 @@ import java.io.File;
  * Created by zhiyou on 15-8-14.
  */
 public class Deleteaction extends ActionSupport{
-    private String filename;
-    private String filetype;
-    public String getFilename() {
-        return filename;
-    }
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
 
-    public String getFiletype() {
-        return filetype;
-    }
+    private String selectfile;
 
-    public void setFiletype(String filetype) {
-        this.filetype = filetype;
+    public String getSelectfile() {
+        return selectfile;
+    }
+    public void setSelectfile(String selectfile) {
+        this.selectfile = selectfile;
     }
     public String delete() throws Exception{
-        String path="/home/zhiyou/download/"+filename+filetype;
-        System.out.println("11111"+path);
+        String path="/home/zhiyou/upload/"+getSelectfile();
         File file = new File(path);
+        HttpServletRequest request = ServletActionContext.getRequest();
         ApplicationContext axt = new ClassPathXmlApplicationContext("spring-config.xml");
         Dfilelist dfilelistDao = axt.getBean("dfilelistDao", DfilelistDao.class);
-        dfilelistDao.delect(filename,filetype);
+        dfilelistDao.delect(getSelectfile());
         DeletDao deletDao = new DeletDao();
-        deletDao.delete(file);
+
+       if( deletDao.delete(file)>0) {
+            request.setAttribute("error","恭喜你成功删除");
+       }
+        if(deletDao.delete(file)<0){
+            request.setAttribute("error","");
+        }
         return SUCCESS;
     }
 }

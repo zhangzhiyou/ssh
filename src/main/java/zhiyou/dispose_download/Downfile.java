@@ -11,20 +11,23 @@ import java.io.*;
  * 把读取的内容写入到response中，再写到磁盘中。
  * 完成文件的下载
  */
-public class Downfile {
+public  class Downfile {
 
     private ServletContext servletContext;
-    public void down(HttpServletResponse response,String filename,String filetype) throws Exception {
 
+    public void sdown(HttpServletResponse response,String filename) throws Exception {
         String path="/home/zhiyou/upload/";
-        String paths="/home/zhiyou/download/"+filename+filetype;
+        String paths="/home/zhiyou/download/"+filename;
+
         //添加response.addHeader可以防止文件名中有中问乱码问题
         response.addHeader("Content-Disposition", "attachment; name=\"" + filename + "\"");
+
         File file = new File(path);
         File file1 = new File(paths);
         try {
             //new一个FileInputStream对象，为了获取要下载文件夹的路径
             FileInputStream inputStream = new FileInputStream(file+"/"+filename);
+
             //new一个FileOutputSteam对象，获取下载后文件放在哪，
             FileOutputStream fos = new FileOutputStream(file1);
             byte[] buffer = new byte[1024];
@@ -33,9 +36,11 @@ public class Downfile {
             //获得一个 ServletOutputStream(向客户端发送二进制数据的输出流)对象
             OutputStream servletOutPutStream=response.getOutputStream();
             while ((len=inputStream.read(buffer))!=-1) {
+
                 //每次取出response.getOutputStream中的1024个字节写入servletOutPutStream中，
                 //而且下次循环开始是从上次读完后开始的，直到读完文件中的所有字节
                 servletOutPutStream.write(buffer,0,len);
+
                 //把那次读得字节全部都写到指定的文件中。
                 fos.write(buffer,0,len);
             }

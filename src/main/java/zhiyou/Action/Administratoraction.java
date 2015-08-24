@@ -24,7 +24,7 @@ public class Administratoraction extends ActionSupport {
     public String getPassword() {
         return password;
     }
-    public void setPassword(String password) {
+    public void setPassword(String password){
         this.password = password;
     }
     public String execute() throws Exception{//spring链接hibernater，处理数据库信息
