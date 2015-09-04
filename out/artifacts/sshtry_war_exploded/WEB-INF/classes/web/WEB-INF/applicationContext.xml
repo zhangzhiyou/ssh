@@ -16,15 +16,27 @@
        </bean>
        <!--<bean id="filelist" class="zhiyou.model.Filelist">-->
        <!--</bean>-->
-
        <bean id="lvlogin" class="zhiyou.model.Lvlogin"/>
        <bean id="lvloginshenhedao" class="zhiyou.Action.Lvloginshenhedao"/>
       <!--上传文件列表-->
        <bean id="filelist" class="zhiyou.model.Filelist"/>
+        <!--注册表单-->
+        <bean id="register" class="zhiyou.model.Register">
+        </bean>
+        <bean id="registeraction" class="zhiyou.Action.RegisterAction"/>
+        <!---->
 
        <bean id="uploadingaction" class="zhiyou.Action.Uploadingaction"/>
        <!--下载文件-->
        <bean id="downloadaction" class="zhiyou.Action.Downloadaction"/>
         <!--删除文件-->
         <bean id="deleteaction" class="zhiyou.Action.Deleteaction"/>
+
+        <!--普通用户登录-->
+        <!--普通用户名表单-->
+        <bean id="userlogin" class="zhiyou.model.Userlogin"/>
+        <bean id="userloginaction" class="zhiyou.Action.Userloginaction"/>
+        <!--普通用户下载-->
+        <bean id="userupdownaction" class="zhiyou.Action.Userupdownaction"/>
+
 </beans>

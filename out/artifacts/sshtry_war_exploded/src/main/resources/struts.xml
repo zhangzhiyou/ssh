@@ -18,8 +18,7 @@
         <constant name="struts.custom.i18n.resources" value="uploadFile"/>
         <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
 
-        <package name="lee" extends="struts-default">
-
+        <package name="lee" extends="struts-default"><!--基于struts2拦截器-->
                 <action name="login" class="loginAction">
                         <result name="success">Administrator.jsp</result>
                         <result name="error">Userlogin.jsp</result>
@@ -35,9 +34,13 @@
                 </action>
                 <!--处理上传文件业务逻辑-->
                 <action name="login4" class="uploadingaction">
-
                         <result name="success">Lvloginout.jsp</result>
                         <result name="error">Lvloginout.jsp</result>
+                </action>
+                <!--普通用户上传-->
+                <action name="login5" class="userupdownaction">
+                     <result name="success">userloginout.jsp</result>
+                        <result name="error">userloginout.jsp</result>
                 </action>
                 <action name="download" class="downloadaction" method="down">
                         <!-- 配置结果类型为stream的结果 -->
@@ -45,7 +48,15 @@
                 </action>
                 <action name="delete" class ="deleteaction" method="delete">
                         <result name ="success">delectfile.jsp</result>
-
+                </action>
+                <!--注册业务处理-->
+                <action name="register" class="registeraction" >
+                        <result name="success">register.jsp</result>
+                        <result name="error">register.jsp</result>
+                </action>
+                <action name="userlogin" class="userloginaction">
+                        <result name="error">Userlogin.jsp</result>
+                        <result name="success">userloginout.jsp</result>
                 </action>
         </package>
 </struts>

@@ -26,19 +26,19 @@ public class DfilelistDao extends HibernateDaoSupport implements Dfilelist{
     public void save(Filelist filelist){
         getHibernateTemplate().save(filelist);
     }
-
     public void updata(Filelist filelist){
         getHibernateTemplate().update(filelist);
     }
     public  String showtable() throws Exception {
-    HttpServletRequest request = ServletActionContext.getRequest();
-    HttpServletResponse response = ServletActionContext.getResponse();
+//    HttpServletRequest request = ServletActionContext.getRequest();
+//    HttpServletResponse response = ServletActionContext.getResponse();
         //todo 原来的开始
         String str="<table  "+ "border=\"1\" cellpadding=\"10\" " + "cellspacing=\"0\" width=\"600\">" +
                 "<tr><th>文件列表</th></tr>";
         String hql="select filename from Filelist";
         Query query = currentSession().createQuery(hql);
         List<Object> list = query.list();
+      //  List<String> list = query.list();
 
 
 

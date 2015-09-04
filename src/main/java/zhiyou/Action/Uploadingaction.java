@@ -7,6 +7,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import zhiyou.Dao.Dfilelist;
 import zhiyou.Dao.DfilelistDao;
+import zhiyou.Dao.RegisterDao;
+import zhiyou.Dao.Registers;
 import zhiyou.model.Filelist;
 
 import javax.servlet.http.HttpServlet;
@@ -24,9 +26,8 @@ import java.io.*;
 
 public  class Uploadingaction extends ActionSupport {
      private File file;
-//     private String filename;
     private String fileFileName;//获取上传文件的名字如 123.text
-    private String fileContentType;//获取上传文件的类型
+    private String fileContentType;//获取上传文件的类型 imgen/img
 
     public String getFileContentType() {
         return fileContentType;
@@ -43,27 +44,15 @@ public  class Uploadingaction extends ActionSupport {
     public void setFileFileName(String fileFileName) {
         this.fileFileName = fileFileName;
     }
-
     private String error;
     private String success;
 
     public File getFile() {
         return file;
     }
-
-
-
     public void setFile(File file) {
         this.file = file;
     }
-//    public String getFilename() {
-//        return filename;
-//    }
-//
-//    public void setFilename(String filename) {
-//        this.filename = filename;
-//    }
-
     public String getError() {
         return error;
     }
@@ -81,18 +70,15 @@ public  class Uploadingaction extends ActionSupport {
     }
 
     public String execute() throws Exception{
-
         //获取上传文件存放的路径
         String name = getFileFileName();
-        Filelist filelist = new Filelist(name);
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");//加载xml文件
+        Filelist filelist = new Filelist(name);//创建一个（带参数）持久化类对象
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");//加载xml文件实列化一个工厂
         Dfilelist dfilelistDao = ctx.getBean("dfilelistDao",DfilelistDao.class);
-        //todo 把新添加的文件名和文件类型保存到数据库
-        dfilelistDao.save(filelist);
-        System.out.println("文件名是="+getFileFileName());
-
         String root = "/home/zhiyou/upload"+"/"+name;
         if(file!=null){
+            //todo 把新添加的文件名和文件类型保存到数据库
+            dfilelistDao.save(filelist);
             File savefile = new File(root);//todo File引用的是java.io.*包下面的
             if(!savefile.getParentFile().exists()){//判断存放文件的文件夹是否存在，
                 savefile.getParentFile().mkdirs();//若不存在就新建一个

@@ -33,6 +33,9 @@
         *{margin :0 ;padding:0}
         body{font-size:12px;font-family:"微软雅黑";background: url("img/down.jpg");color:#666}
         .delete{ width: 100%;height: 600px;}
+        .delete .deleteDesc{width:1000px;height:50px;color: #807f74;background-color: #f8f1be;
+            text-align: center;font-size: 20px;padding-top: 18px;
+        }
         .delete .d-showtable{background: #fff2ce;
             width: 680px;height: 300px;margin-left: 60px;margin-top: 30px;padding-top: 30px;padding-left: 150px;
         }
@@ -47,6 +50,7 @@
     <body>
         <div class="delete">
           <form action="delete" method="post">
+              <div class="deleteDesc" >欢迎来到删除页面</div>
             <div class="d-showtable">
                 <% ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
                     Dfilelist dfilelistDao = ctx.getBean("dfilelistDao",DfilelistDao.class);

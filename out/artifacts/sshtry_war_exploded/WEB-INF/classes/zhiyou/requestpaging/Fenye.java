@@ -20,12 +20,10 @@ public class Fenye extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doPost(request,response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = request.getParameter("page");//获取jsp页面传过来的参数pags
         String rows = request.getParameter("rows");
-        System.out.println("11111111"+page+rows);
         Pagebean pagebean = new Pagebean(Integer.parseInt(page),Integer.parseInt(rows));//强制转换page和rows
         Connection con = null;
         try {

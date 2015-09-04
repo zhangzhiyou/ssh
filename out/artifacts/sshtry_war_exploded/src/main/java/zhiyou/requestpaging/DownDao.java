@@ -10,7 +10,6 @@ import java.sql.SQLException;
  */
 public class DownDao {
     public ResultSet gradelist (Connection con,Pagebean pagebean) throws SQLException {
-
         StringBuilder sb = new StringBuilder("select * from grade");//表示从数据库中查到的所有的内容反转，然后形成新的字符串sb
         if(pagebean!=null){
             // sb.append("limit").append(pagebean.getPage()).append(',').append(pagebean.getRows());//追加内容到当前Stringbuffer对象的末尾

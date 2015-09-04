@@ -37,6 +37,7 @@
                 <!--todo 列出所有的映射文件，通过这来加载.hbm.xml文件-->
                 <value>zhiyou/model/administrator.hbm.xml</value>
                 <value>zhiyou/model/filelist.hbm.xml</value>
+                <value>zhiyou/model/register.hbm.xml</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -66,7 +67,7 @@
     <aop:config>
         <!-- todo 配置一个切入点每增加一个类就要增加一个bean也就是，下面的配置的daobean -->
         <aop:pointcut id="ajaxPointcut"
-                      expression="bean(administratorDao)||bean(dfilelistDao)"/>
+                      expression="bean(administratorDao)||bean(dfilelistDao)||bean(registerDao)||bean(userloginDao)"/>
         <!-- 指定在 leePointcut 切入点应用 txAdvice 事务增强处理 -->
         <aop:advisor advice-ref="txAdvice"
                      pointcut-ref="ajaxPointcut"/>
@@ -75,14 +76,20 @@
     <aop:aspectj-autoproxy proxy-target-class="true"/>
     <!--配置dao的bean 所有的daobean都与数据库有关-->
     <bean id="administratorDao" class="zhiyou.Dao.AdministratorDao">
-
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
     <bean id="lvoginshenheDao" class="zhiyou.Dao.LvoginshenheDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
     <bean id="dfilelistDao" class="zhiyou.Dao.DfilelistDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--处理注册的bean-->
+    <bean id="registerDao" class="zhiyou.Dao.RegisterDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--普通用户登录-->
+    <bean id="userloginDao" class="zhiyou.Dao.UserloginDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 </beans>

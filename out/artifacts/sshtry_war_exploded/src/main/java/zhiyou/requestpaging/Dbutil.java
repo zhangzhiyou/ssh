@@ -21,7 +21,6 @@ public class Dbutil {
 
         Class.forName(jdbcName);
         Connection con= DriverManager.getConnection(url);
-
         return con;
     }
 

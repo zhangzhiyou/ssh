@@ -48,14 +48,6 @@
                           <span>选择上传文件：</span>
                          <input type="file" name="file" class="h-file"/>
                         </p>
-                      <%--<p >--%>
-                        <%--<span>文件名：</span>--%>
-                        <%--<input type="text" name="filename" class="h-file"/>--%>
-                      <%--</p>--%>
-                      <%--<p >--%>
-                        <%--<span>文件类型：</span>--%>
-                        <%--<input  type="text" name="filetype" class="h-file"/>--%>
-                      <%--</p>--%>
 
           <div class="h-jump">
                 <div class="h-login">
