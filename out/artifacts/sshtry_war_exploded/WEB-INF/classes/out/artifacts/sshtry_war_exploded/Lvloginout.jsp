@@ -16,10 +16,10 @@
   <style>
     *{margin:0;padding:0}
     body{font-size:12px;font-family:"微软雅黑";color: #666}
-    .head{width:100%;height:700%;background: url("img/am.jpg") ;position:relative}
-    .head .h-uplode{width:400px;height:400px;
+    .head{width:100%;height:700px;background: url("img/am.jpg") ;position:relative}
+    .head .h-uplode{width:400px;height:224px;
       border: 1px solid red; position:absolute;
-      top:180px;left:440px;background: #fffdc7;
+      top:150px;left:360px;background: #fffdc7;
       /*padding-top:14px;*/
       /*padding-left: 72px;*/
     }
@@ -45,16 +45,9 @@
     <div class="head">
     <div class="h-uplode">
                       <p>
+                          <span>选择上传文件：</span>
                          <input type="file" name="file" class="h-file"/>
                         </p>
-                      <p >
-                        <span>文件名：</span>
-                        <input type="text" name="filename" class="h-file"/>
-                      </p>
-                      <p >
-                        <span>文件类型：</span>
-                        <input  type="text" name="filetype" class="h-file"/>
-                      </p>
 
           <div class="h-jump">
                 <div class="h-login">
@@ -76,7 +69,6 @@
           </div>
                   <p class="h-prompt">
                       <font color="aqua">${success}</font>
-                    <font  color="red">${ error}</font>
                   </p>
           </div>
     </div>

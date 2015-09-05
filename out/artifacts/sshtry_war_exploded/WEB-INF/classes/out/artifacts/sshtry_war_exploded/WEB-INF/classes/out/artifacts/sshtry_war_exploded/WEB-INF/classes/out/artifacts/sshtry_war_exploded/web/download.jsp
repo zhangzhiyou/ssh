@@ -38,13 +38,17 @@
       background: url("img/down.jpg") }
     .d-all .d-table{width: 750px;height:500px;
       margin-left: 80px;padding-top: 30px;padding-left:100px;}
-    .d-all .d-table .d-showtable{width: 600px;height:300px;background: #f7ffc2;
+    .d-all .d-table .d-showtable{width: 600px;background: #f7ffc2;
       margin-left: 40px;margin-top: 1px;}
     .d-submit{width: 250px;height: 100px;margin: 0 auto}
     .d-all .d-table .d-butten{width: 100px;height:30px;
       border-radius: 3px;font-size: 20px;float: left}
     .d-all .d-table .d-href{width: 100px;height:30px;
         border-radius: 3px;font-size: 20px;float: right}
+      tr:nth-of-type(even){ background-color: #f3f3f3}
+      tr:nth-of-type(odd){
+          background-color: #ddd;
+      }
   </style>
 </head>
 <body>
@@ -57,12 +61,11 @@
                         Dfilelist dfilelistDao = ctx.getBean("dfilelistDao",DfilelistDao.class);
                     %>
                     <%=dfilelistDao.showtable()%>
-          </div>
+          </div><br><br>
           <div class="d-submit">
                 <p>
                     <input type="submit" value="下载" class="d-butten">
                 </p>
-
           </div>
       </div>
 

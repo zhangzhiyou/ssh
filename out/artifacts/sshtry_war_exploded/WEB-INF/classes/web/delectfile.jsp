@@ -45,6 +45,10 @@
         }
         .d-submit{width: 300px;background: #8c828c;margin: 0 auto;height: 50px;}
         .warn{margin:0 auto}
+        tr:nth-of-type(even){
+            background-color: #f3f3f3;
+        }
+        tr:nth-of-type(odd){background-color: #ddd}
     </style>
 </head>
     <body>

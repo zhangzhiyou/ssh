@@ -35,8 +35,6 @@
         <property name="mappingResources">
             <list>
                 <!--todo 列出所有的映射文件，通过这来加载.hbm.xml文件-->
-                <value>zhiyou/model/administrator.hbm.xml</value>
-                <value>zhiyou/model/filelist.hbm.xml</value>
                 <value>zhiyou/model/register.hbm.xml</value>
             </list>
         </property>

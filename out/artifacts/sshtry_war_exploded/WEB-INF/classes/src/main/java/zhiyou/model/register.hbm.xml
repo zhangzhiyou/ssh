@@ -7,6 +7,7 @@
 <!--hibernate-mapping是映射文件的根元素-->
 <hibernate-mapping package="zhiyou" ><!--配置另一个表-->
     <!-- 每个class元素对应一个持久话对象-->
+    <!--注册用户table-->
     <class name="zhiyou.model.Register" table="register">
         <!--id元素定义持久化对象-->
         <id name="id" column="id">
@@ -19,6 +20,9 @@
         <property name="email"  type="java.lang.String"/>
 
     </class>
+
+
+    <!--普通用户登录用户名和密码table-->
     <class name="zhiyou.model.Userlogin" table="userlogin">
         <!--id元素定义持久化对象-->
         <id name="id" column="id">
@@ -28,6 +32,32 @@
         <!-- property元素定义常规属性-->
         <property name="userName"  type="java.lang.String"/>
         <property name="password"  type="java.lang.String"/>
+    </class>
+
+
+        <!--管理员登录用户名和密码table-->
+    <class name="zhiyou.model.Administrator" table="administrator">
+        <!--id元素定义持久化对象-->
+        <id name="id" column="id">
+            <!--指定主键生成策略-->
+            <generator class="identity"/>
+        </id>
+        <!-- property元素定义常规属性-->
+        <property name="username"  type="java.lang.String"/>
+        <property name="password"  type="java.lang.String"/>
+    </class>
+
+
+        <!--文件列表table-->
+    <class name="zhiyou.model.Filelist" table="filelist">
+        <!--id元素定义持久化对象-->
+        <id name="id" column="id">
+            <!--指定主键生成策略-->
+            <generator class="identity"/>
+        </id>
+        <!-- property元素定义常规属性-->
+        <property name="filename"  type="java.lang.String"/>
+        <!--<property name="filetype"  type="java.lang.String"/>-->
     </class>
 
 </hibernate-mapping>

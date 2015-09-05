@@ -16,8 +16,8 @@
   <style>
     *{margin:0;padding:0}
     body{font-size:12px;font-family:"微软雅黑";color: #666}
-    .head{width:100%;height:700%;background: url("img/am.jpg") ;position:relative}
-    .head .h-uplode{width:400px;height:400px;
+    .head{width:100%;height:100%;background: url("img/am.jpg") ;position:relative}
+    .head .h-uplode{width:400px;height:224px;
       border: 1px solid red; position:absolute;
       top:150px;left:360px;background: #fffdc7;
       /*padding-top:14px;*/

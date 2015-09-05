@@ -40,7 +40,6 @@ public  class Downfile {
                 //每次取出response.getOutputStream中的1024个字节写入servletOutPutStream中，
                 //而且下次循环开始是从上次读完后开始的，直到读完文件中的所有字节
                 servletOutPutStream.write(buffer,0,len);
-
                 //把那次读得字节全部都写到指定的文件中。
                 fos.write(buffer,0,len);
             }

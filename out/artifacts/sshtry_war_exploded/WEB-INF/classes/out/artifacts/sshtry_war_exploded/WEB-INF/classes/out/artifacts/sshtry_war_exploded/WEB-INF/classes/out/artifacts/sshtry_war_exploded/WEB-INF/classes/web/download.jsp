@@ -43,8 +43,11 @@
     .d-submit{width: 250px;height: 100px;margin: 0 auto}
     .d-all .d-table .d-butten{width: 100px;height:30px;
       border-radius: 3px;font-size: 20px;float: left}
-    .d-all .d-table .d-href{width: 100px;height:30px;
-        border-radius: 3px;font-size: 20px;float: right}
+
+      tr:nth-of-type(even){ background-color: #f3f3f3}
+      tr:nth-of-type(odd){
+          background-color: #ddd;
+      }
   </style>
 </head>
 <body>
@@ -62,7 +65,6 @@
                 <p>
                     <input type="submit" value="下载" class="d-butten">
                 </p>
-
           </div>
       </div>
 

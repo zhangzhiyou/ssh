@@ -36,7 +36,7 @@
            <td width="20%"></td>
            <td width="10%"><input type="submit" value="登入"></td>
            <td width="10%"><a href="register.jsp">注册</a></td>
-           <td width="10%"><a href="Administrator.jsp">重置</a></td>
+           <td width="10%"><a href="Userlogin.jsp">重置</a></td>
            <td width="10%"></td>
          </tr>
        </table>
