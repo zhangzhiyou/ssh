@@ -11,22 +11,22 @@
     <title>欢迎来到分享界面</title>
 
     <style type="text/css">
-      /**{margin: 0;padding :0}*/
-      /*body{font-size:12px;font-family: "微软雅黑" ;color:#666}*/
-      /*.head{width:100%;height:50px;}*/
-      /*.head .h-letf{width:200px;height:60px;border:1px green;*/
-        /*margin-left:20px;float:left}*/
-      /*.head .h-mid{height: 60px;border:1px lightseagreen}*/
-      /*.head .h-rigth{width: 200px;height:60px;border:1px blue;*/
-        /*float:right;margin-right:20px;}*/
+      *{margin: 0;padding :0}
+      body{font-size:12px;font-family: "微软雅黑" ;color:#666}
+      .head{width:100%;height:50px;}
+      .head .h-letf{width:200px;height:60px;border:1px green;
+        margin-left:20px;float:left}
+      .head .h-mid{height: 60px;border:1px lightseagreen}
+      .head .h-rigth{width: 200px;height:60px;border:1px blue;
+        float:right;margin-right:20px;}
       body{background: url("img/am.jpg")}
-      div{
-        border-top: 1px dashed blue;
-        border-right:1px dotted #2b42ff;
-        border-left:1px solid #ff0000;
-        border-bottom: 1px solid chartreuse;
+      /*div{*/
+        /*border-top: 1px dashed blue;*/
+        /*border-right:1px dotted #2b42ff;*/
+        /*border-left:1px solid #ff0000;*/
+        /*border-bottom: 1px solid chartreuse;*/
 
-      }
+      /*}*/
     </style>
   </head>
   <body>
@@ -50,14 +50,14 @@
               <td>
                 <font color="#FF0000">管理员登录</font>
                 <label>
-                  <input type="radio" name="login" value="1">
+                  <input type="radio" style="width: 20px;height: 20px" name="login" value='1'>
                 </label>
               </td>
             </tr>
             <td>
               <font color="#FF0000">用户登录</font>
               <label>
-                <input type="radio" name="login" value="2">
+                <input type="radio" style="width: 20px;height:20px" name="login" value='2'>
               </label><br/>
             </td>
             <tr>

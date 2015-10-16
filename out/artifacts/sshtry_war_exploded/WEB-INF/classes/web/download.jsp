@@ -43,7 +43,6 @@
     .d-submit{width: 250px;height: 100px;margin: 0 auto}
     .d-all .d-table .d-butten{width: 100px;height:30px;
       border-radius: 3px;font-size: 20px;float: left}
-
       tr:nth-of-type(even){ background-color: #f3f3f3}
       tr:nth-of-type(odd){
           background-color: #ddd;

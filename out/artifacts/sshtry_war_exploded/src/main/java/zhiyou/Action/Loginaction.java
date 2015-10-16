@@ -6,14 +6,14 @@ import com.opensymphony.xwork2.ActionSupport;
  * Created by zhiyou on 15-5-30.
  */
 public class Loginaction extends ActionSupport{
-     private String login;//定义页面中输入框中的name变量，就可以通过get和set方法直接获取值
+     private char login;//定义页面中输入框中的name变量，就可以通过get和set方法直接获取值
      String st;
 
-    public String getLogin() {
+    public char getLogin() {
         return login;
     }
 
-    public void setLogin(String login) {
+    public void setLogin(char login) {
         this.login = login;
     }
     private Myservice ms;
